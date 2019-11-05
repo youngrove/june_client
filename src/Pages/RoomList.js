@@ -1,12 +1,7 @@
 import React from "react";
-import Room from "../Components/Room";
 
 const RoomList = () => {
-  return (
-    <>
-      <Room />
-    </>
-  );
+  return <>추가하기</>;
 };
 
 export default RoomList;
