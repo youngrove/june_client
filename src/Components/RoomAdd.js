@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const RoomAdd = () => {
+const RoomAdd = props => {
   const [form, setValues] = useState({
     roomName: "",
     gotWindow: false,
@@ -9,18 +9,11 @@ const RoomAdd = () => {
     width: 0,
     gotToilet: false
   });
-  //   let formData = new FormData();
-  //   formData.append("roomName", form.roomName);
-  //   formData.append("gotWindow", form.gotWindow);
-  //   formData.append("price", form.price);
+
   const body = {
     roomName: form.roomName,
     gotWindow: form.gotWindow,
     price: form.price
-  };
-  const printValues = e => {
-    e.preventDefault();
-    console.log(form.roomName, form.gotWindow, form.price);
   };
   const updateField = e => {
     setValues({ ...form, [e.target.name]: e.target.value });
@@ -33,7 +26,7 @@ const RoomAdd = () => {
     axios
       .post("http://localhost:3002/room/enroll", body)
       .then(res => {
-        console.log(res);
+        props.stateRefresh();
       })
       .catch(err => console.log(err));
   };
