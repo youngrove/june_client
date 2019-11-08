@@ -1,12 +1,50 @@
 import React, { useState, useEffect } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "@material-ui/core/AppBar";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Toolbar } from "@material-ui/core";
+import { Card } from "@material-ui/core";
 import Typography from "@material-ui/core/typography";
 import axios from "axios";
-import { Redirect, Route } from "react-router-dom";
+
+const styles = {
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    background: "url(https://source.unsplash.com/random/1600x900)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
+  },
+  card: {
+    minWidth: 300,
+    marginTop: "6em"
+  },
+  avatar: {
+    margin: "1em",
+    display: "flex",
+    justifyContent: "center"
+  },
+  icon: {
+    backgroundColor: "skyblue"
+  },
+  hint: {
+    marginTop: "1em",
+    display: "flex",
+    justifyContent: "center",
+    color: "grey"
+  },
+  form: {
+    padding: "0 1em 1em 1em"
+  },
+  input: {
+    marginTop: "1em"
+  },
+  actions: {
+    padding: "0 1em 1em 1em"
+  }
+};
 
 const Login = props => {
   const [id, setId] = useState("");
@@ -22,6 +60,7 @@ const Login = props => {
         if (res.status === 200) {
           console.log("@@@success");
           localStorage.setItem("isLogin", true);
+          props.history.push("/admin");
         }
       })
       .catch(error => {
@@ -30,30 +69,31 @@ const Login = props => {
   };
 
   return (
-    <div>
-      <AppBar>
-        <Typography>로그인</Typography>
-      </AppBar>
-      <TextField
-        required
-        label="id"
-        onChange={e => setId(e.target.value)}
-      ></TextField>
-      <br />
-      <TextField
-        required
-        label="password"
-        onChange={e => setPw(e.target.value)}
-      ></TextField>
-      <div>
-        <Button color="primary" onClick={onSubmit}>
-          로그인
-        </Button>
-      </div>
-      <div>
-        <Button color="primary" onClick={onSubmit}>
-          회원가입
-        </Button>
+    <div style={styles.main}>
+      <div style={styles.card}>
+        <form style={styles.form}>
+          <Card>
+            <div style={styles.input}>
+              <TextField
+                required
+                label="id"
+                onChange={e => setId(e.target.value)}
+              />
+              <br />
+              <TextField
+                required
+                label="password"
+                type="password"
+                onChange={e => setPw(e.target.value)}
+              />
+            </div>
+            <div>
+              <Button color="primary" onClick={onSubmit}>
+                로그인
+              </Button>
+            </div>
+          </Card>
+        </form>
       </div>
     </div>
   );
