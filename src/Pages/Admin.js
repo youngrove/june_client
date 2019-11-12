@@ -12,9 +12,7 @@ class Admin extends Component {
     };
     this.stateRefresh = this.stateRefresh.bind(this);
     this.logout = this.logout.bind(this);
-  }
-  stateRefresh() {
-    this.fetchData();
+    this.editData = this.editData.bind(this);
   }
 
   fetchData() {
@@ -26,7 +24,10 @@ class Admin extends Component {
 
   componentDidMount() {
     this.fetchData();
-    console.log(this.props);
+  }
+
+  stateRefresh() {
+    this.fetchData();
   }
 
   logout() {
@@ -34,12 +35,23 @@ class Admin extends Component {
     this.props.history.push("/login");
   }
 
+  editData(e, name, idx) {
+    console.log(e.target.value);
+    this.setState(state => ({
+      data: state.data.map((row, j) => (j === idx ? console.log(row) : row))
+    }));
+  }
+
   render() {
     return (
       <div>
         <button onClick={this.logout}>로그아웃</button>
         <RoomAdd stateRefresh={this.stateRefresh} />
-        <RoomList data={this.state.data} stateRefresh={this.stateRefresh} />
+        <RoomList
+          data={this.state.data}
+          stateRefresh={this.stateRefresh}
+          editData={this.editData}
+        />
       </div>
     );
   }
