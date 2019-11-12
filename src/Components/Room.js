@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import VideoModal from "./Video";
 import axios from "axios";
 import {
   Paper,
@@ -7,11 +8,13 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
+  Button
 } from "@material-ui/core";
 
 const Room = () => {
   const [data, setData] = useState([]);
+  const [isOpen, setModal] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,7 +22,11 @@ const Room = () => {
       .then(res => setData(res.data))
       .catch(err => console.log(err));
   }, []);
-  console.log(data);
+
+  const handleModal = () => {
+    setModal(!isOpen);
+  };
+
   return (
     <section className="grey-section" id="room">
       <h3>빈방정보</h3>
@@ -28,10 +35,10 @@ const Room = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>호수</TableCell>
-              <TableCell align="right">방종류</TableCell>
-              <TableCell align="right">가격</TableCell>
-              <TableCell align="right">둘러보기</TableCell>
+              <TableCell align="center">호수</TableCell>
+              <TableCell align="center">방종류</TableCell>
+              <TableCell align="center">가격</TableCell>
+              <TableCell align="center">동영상</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -44,12 +51,17 @@ const Room = () => {
                   {item.gotWindow ? "외창방" : "내창방"}
                 </TableCell>
                 <TableCell align="right">{item.price}만원/월</TableCell>
-                <TableCell align="right">link</TableCell>
+                <TableCell align="right">
+                  <Button color="primary" onClick={handleModal}>
+                    영상보기
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </Paper>
+      <VideoModal open={isOpen} handleModal={handleModal}></VideoModal>
     </section>
   );
 };
