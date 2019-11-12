@@ -2,8 +2,6 @@ import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import TypoGraphy from "@material-ui/core/Typography";
-// import Dehaze from "@material-ui/icons/Dehaze";
 import { Link } from "react-scroll";
 
 const Nav = () => {
@@ -21,11 +19,9 @@ const Nav = () => {
           >
             시설소개
           </Link>
-          {/* <TypoGraphy variant="title">시설소개</TypoGraphy> */}
         </ListItemText>
 
         <ListItemText inset>
-          {/* <TypoGraphy variant="title">공실현황</TypoGraphy> */}
           <Link
             activeClass="active"
             to="room"
@@ -39,7 +35,6 @@ const Nav = () => {
         </ListItemText>
 
         <ListItemText inset>
-          {/* <TypoGraphy variant="title">공실현황</TypoGraphy> */}
           <Link
             activeClass="active"
             to="facility"
@@ -63,7 +58,6 @@ const Nav = () => {
           >
             생활안내
           </Link>
-          {/* <TypoGraphy variant="title">생활안내</TypoGraphy> */}
         </ListItemText>
       </ListItem>
     </List>

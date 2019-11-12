@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow
 } from "@material-ui/core";
-import { Edit, Delete, Check } from "@material-ui/icons/";
+import { Edit, Delete } from "@material-ui/icons/";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 
