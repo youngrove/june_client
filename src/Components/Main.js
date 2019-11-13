@@ -4,7 +4,7 @@ import "../App.css";
 const Main = () => {
   return (
     <section className="main-section" id="main">
-      <p>을지로 준레지던스</p>
+      <h1>을지로 준레지던스</h1>
     </section>
   );
 };
