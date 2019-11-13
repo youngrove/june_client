@@ -5,7 +5,8 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
+  Button
 } from "@material-ui/core";
 import { Edit, Delete } from "@material-ui/icons/";
 import { withStyles } from "@material-ui/core/styles";
@@ -16,10 +17,8 @@ const styles = theme => ({
     display: "flex",
     flexWrap: "wrap"
   },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 70
+  button: {
+    margin: theme.spacing(1)
   }
 });
 
@@ -70,7 +69,7 @@ class RoomList extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, classes } = this.props;
     return (
       <>
         <Table>
@@ -94,8 +93,24 @@ class RoomList extends Component {
                 <TableCell>{item.isAvailable ? "네" : "아니오"}</TableCell>
                 <TableCell>{item.link}</TableCell>
                 <TableCell>
-                  <Edit onClick={() => this.handleEdit(idx)} />
-                  <Delete onClick={() => this.handleDelete(idx)} />
+                  <Button
+                    variant="outlined"
+                    className={classes.button}
+                    color="primary"
+                    onClick={() => this.handleEdit(idx)}
+                  >
+                    수정
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    className={classes.button}
+                    color="primary"
+                    onClick={() => this.handleDelete(item.roomName)}
+                  >
+                    삭제
+                  </Button>
+                  {/* <Edit onClick={() => this.handleEdit(idx)} />
+                  <Delete onClick={() => this.handleDelete(item.roomName)} /> */}
                 </TableCell>
               </TableRow>
             ))}
