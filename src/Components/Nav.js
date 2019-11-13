@@ -1,8 +1,14 @@
 import React from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  SvgIcon,
+  Icon,
+  ListItemIcon
+} from "@material-ui/core";
 import { Link } from "react-scroll";
+import LinkTo from "@material-ui/core/Link";
 
 const Nav = () => {
   return (
@@ -59,6 +65,7 @@ const Nav = () => {
             생활안내
           </Link>
         </ListItemText>
+        <LinkTo href="https://open.kakao.com/o/sM9BAiLb">카톡하기</LinkTo>
       </ListItem>
     </List>
   );
