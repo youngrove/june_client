@@ -63,7 +63,7 @@ class RoomList extends Component {
 
   handleDelete(id) {
     axios
-      .delete(`http://localhost:3002/room/${id}`)
+      .delete(`http://localhost:3001/room/${id}`)
       .then(() => this.props.stateRefresh())
       .catch(err => console.log(err));
   }
