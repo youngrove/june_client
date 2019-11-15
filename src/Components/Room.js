@@ -18,7 +18,7 @@ const Room = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/room/")
+      .get("http://localhost:3001/room/")
       .then(res => setData(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -55,13 +55,17 @@ const Room = () => {
                   <Button color="primary" onClick={handleModal}>
                     영상보기
                   </Button>
+                  <VideoModal
+                    open={isOpen}
+                    handleModal={handleModal}
+                    url={item.link}
+                  ></VideoModal>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </Paper>
-      <VideoModal open={isOpen} handleModal={handleModal}></VideoModal>
     </section>
   );
 };
