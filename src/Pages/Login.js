@@ -3,7 +3,6 @@ import AppBar from "@material-ui/core/AppBar";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Card } from "@material-ui/core";
-import Typography from "@material-ui/core/typography";
 import axios from "axios";
 
 const styles = {
@@ -13,8 +12,7 @@ const styles = {
     minHeight: "100vh",
     alignItems: "center",
     justifyContent: "flex-start",
-    background: "url(https://source.unsplash.com/random/1600x900)",
-    backgroundRepeat: "no-repeat",
+    backgroundImage: `url(${require("../img/adminImg.jpg")})`,
     backgroundSize: "cover"
   },
   card: {
@@ -52,7 +50,7 @@ const Login = props => {
 
   const onSubmit = () => {
     axios
-      .post("http://localhost:3001/user/signin", {
+      .post(`${process.env.REACT_APP_URL}/user/signin`, {
         id: id,
         password: password
       })
@@ -100,78 +98,3 @@ const Login = props => {
 };
 
 export default Login;
-
-// class Login extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       username: "",
-//       password: ""
-//     };
-//   }
-//   handleClick(event) {
-//     var apiBaseUrl = "http://localhost:4000/api/";
-//     var self = this;
-//     var payload = {
-//       email: this.state.username,
-//       password: this.state.password
-//     };
-//     axios
-//       .post(apiBaseUrl + "login", payload)
-//       .then(function(response) {
-//         console.log(response);
-//         if (response.data.code == 200) {
-//           console.log("Login successfull");
-//         } else if (response.data.code == 204) {
-//           console.log("Username password do not match");
-//           alert("username password do not match");
-//         } else {
-//           console.log("Username does not exists");
-//           alert("Username does not exist");
-//         }
-//       })
-//       .catch(function(error) {
-//         console.log(error);
-//       });
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <MuiThemeProvider>
-//           <div>
-//             <Toolbar>
-//               <Typography>로그인</Typography>
-//             </Toolbar>
-//             <TextField
-//               hintText="Enter your Username"
-//               floatingLabelText="Username"
-//               onChange={(event, newValue) =>
-//                 this.setState({ username: newValue })
-//               }
-//             />
-//             <br />
-//             <TextField
-//               type="password"
-//               hintText="Enter your Password"
-//               floatingLabelText="Password"
-//               onChange={(event, newValue) =>
-//                 this.setState({ password: newValue })
-//               }
-//             />
-//             <br />
-//             <RaisedButton
-//               label="Submit"
-//               primary={true}
-//               style={style}
-//               onClick={event => this.handleClick(event)}
-//             />
-//           </div>
-//         </MuiThemeProvider>
-//       </div>
-//     );
-//   }
-// }
-// const style = {
-//   margin: 15
-// };
-// export default Login;
