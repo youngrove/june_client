@@ -18,7 +18,7 @@ const Room = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/room/")
+      .get(`${process.env.REACT_APP_URL}/room/`)
       .then(res => setData(res.data))
       .catch(err => console.log(err));
   }, []);

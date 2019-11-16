@@ -34,7 +34,7 @@ const RoomEdit = props => {
 
   const handleSubmit = id => {
     axios
-      .patch(`http://localhost:3001/room/${id}`, {
+      .patch(`${process.env.REACT_APP_URL}/room/${id}`, {
         isAvailable: checkValue("isAvailable"),
         price: checkValue("price"),
         link: checkValue("link")
