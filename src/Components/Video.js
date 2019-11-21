@@ -32,16 +32,15 @@ const useStyles = makeStyles(theme => ({
 const Video = props => {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-
   return (
     <Modal open={props.open} onClose={props.handleModal}>
       <div style={modalStyle} className={classes.paper}>
         <ReactPlayer
-          url="https://www.youtube.com/watch?v=zTitoHKsyJg"
+          url={props.url}
           playing
           controls
           width="100%"
-          height="100%"
+          height="400px"
         ></ReactPlayer>
       </div>
     </Modal>
