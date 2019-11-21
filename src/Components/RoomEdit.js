@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   TextField,
   Switch,
@@ -34,7 +34,7 @@ const RoomEdit = props => {
 
   const handleSubmit = id => {
     axios
-      .patch(`http://localhost:3002/room/${id}`, {
+      .patch(`${process.env.REACT_APP_URL}/room/${id}`, {
         isAvailable: checkValue("isAvailable"),
         price: checkValue("price"),
         link: checkValue("link")

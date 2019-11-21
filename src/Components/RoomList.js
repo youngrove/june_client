@@ -8,7 +8,6 @@ import {
   TableRow,
   Button
 } from "@material-ui/core";
-import { Edit, Delete } from "@material-ui/icons/";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 
@@ -63,7 +62,7 @@ class RoomList extends Component {
 
   handleDelete(id) {
     axios
-      .delete(`http://localhost:3002/room/${id}`)
+      .delete(`${process.env.REACT_APP_URL}/room/${id}`)
       .then(() => this.props.stateRefresh())
       .catch(err => console.log(err));
   }

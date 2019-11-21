@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import { Card } from "@material-ui/core";
-import Typography from "@material-ui/core/typography";
+import React, { useState } from "react";
+import { Button, Card, TextField } from "@material-ui/core";
 import axios from "axios";
 
 const styles = {
@@ -52,7 +48,7 @@ const Login = props => {
 
   const onSubmit = () => {
     axios
-      .post("http://localhost:3002/user/signin", {
+      .post(`${process.env.REACT_APP_URL}/user/signin`, {
         id: id,
         password: password
       })

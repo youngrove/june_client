@@ -4,7 +4,7 @@ import axios from "axios";
 const RoomDelete = props => {
   const handleDelete = id => {
     axios
-      .delete(`http://localhost:3002/room/${id}`)
+      .delete(`${process.env.REACT_APP_URL}/room/${id}`)
       .then(res => props.stateRefresh())
       .catch(err => console.log(err));
   };

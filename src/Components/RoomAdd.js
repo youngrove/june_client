@@ -28,7 +28,7 @@ const RoomAdd = props => {
   const handleFormSubmit = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:3002/room/enroll", body)
+      .post(`${process.env.REACT_APP_URL}/room/enroll`, body)
       .then(res => {
         console.log(res);
         props.stateRefresh();

@@ -17,7 +17,7 @@ class Admin extends Component {
 
   fetchData() {
     axios
-      .get("http://localhost:3002/room/")
+      .get(`${process.env.REACT_APP_URL}/room/`)
       .then(res => this.setState({ data: res.data }))
       .catch(err => console.log(err));
   }

@@ -9,8 +9,22 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Button
+  Button,
+  Container,
+  Typography,
+  Grid
 } from "@material-ui/core";
+
+const styles = {
+  gridContainer: {
+    height: "100vh",
+    width: "100vw",
+    padding: 30
+  },
+  mainContainer: {
+    padding: 0
+  }
+};
 
 const Room = () => {
   const [data, setData] = useState([]);
@@ -18,7 +32,7 @@ const Room = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/room/")
+      .get(`${process.env.REACT_APP_URL}/room/`)
       .then(res => setData(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -28,41 +42,50 @@ const Room = () => {
   };
 
   return (
-    <section className="grey-section" id="room">
-      <h3>빈방정보</h3>
-      <hr />
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell align="center">호수</TableCell>
-              <TableCell align="center">방종류</TableCell>
-              <TableCell align="center">가격</TableCell>
-              <TableCell align="center">동영상</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map(item => (
-              <TableRow key={item.roomName}>
-                <TableCell component="th" scope="row">
-                  {item.roomName}호
-                </TableCell>
-                <TableCell align="right">
-                  {item.gotWindow ? "외창방" : "내창방"}
-                </TableCell>
-                <TableCell align="right">{item.price}만원/월</TableCell>
-                <TableCell align="right">
-                  <Button color="primary" onClick={handleModal}>
-                    영상보기
-                  </Button>
-                </TableCell>
+    <Container id="room" maxWidth="false">
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="center"
+        align="center"
+        style={styles.gridContainer}
+      >
+        <Typography variant="h4">빈방정보</Typography>
+        <hr />
+        <Paper>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">호수</TableCell>
+                <TableCell align="center">방종류</TableCell>
+                <TableCell align="center">가격</TableCell>
+                <TableCell align="center">동영상</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Paper>
-      <VideoModal open={isOpen} handleModal={handleModal}></VideoModal>
-    </section>
+            </TableHead>
+            <TableBody>
+              {data.map(item => (
+                <TableRow key={item.roomName}>
+                  <TableCell component="th" scope="row">
+                    {item.roomName}호
+                  </TableCell>
+                  <TableCell align="right">
+                    {item.gotWindow ? "외창방" : "내창방"}
+                  </TableCell>
+                  <TableCell align="right">{item.price}만원/월</TableCell>
+                  <TableCell align="right">
+                    <Button color="primary" onClick={handleModal}>
+                      영상보기
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Paper>
+        <VideoModal open={isOpen} handleModal={handleModal}></VideoModal>
+      </Grid>
+    </Container>
   );
 };
 

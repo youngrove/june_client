@@ -1,19 +1,23 @@
 import React from "react";
-import {
-  List,
-  ListItem,
-  ListItemText,
-  SvgIcon,
-  Icon,
-  ListItemIcon
-} from "@material-ui/core";
+import { List, ListItem, ListItemText, Typography } from "@material-ui/core";
 import { Link } from "react-scroll";
-import LinkTo from "@material-ui/core/Link";
 
 const Nav = () => {
   return (
     <List component="nav">
       <ListItem component="div">
+        <ListItemText inset>
+          <Link
+            activeClass="active"
+            to="main"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            <Typography variant="h5">준레지던스</Typography>
+          </Link>
+        </ListItemText>
         <ListItemText inset>
           <Link
             activeClass="active"
@@ -23,10 +27,21 @@ const Nav = () => {
             offset={-70}
             duration={500}
           >
-            시설소개
+            <Typography>시설소개</Typography>
           </Link>
         </ListItemText>
-
+        <ListItemText inset>
+          <Link
+            activeClass="active"
+            to="facility"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            공용시설
+          </Link>
+        </ListItemText>
         <ListItemText inset>
           <Link
             activeClass="active"
@@ -43,19 +58,6 @@ const Nav = () => {
         <ListItemText inset>
           <Link
             activeClass="active"
-            to="facility"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-          >
-            공용시설
-          </Link>
-        </ListItemText>
-
-        <ListItemText inset>
-          <Link
-            activeClass="active"
             to="feature"
             spy={true}
             smooth={true}
@@ -65,7 +67,18 @@ const Nav = () => {
             생활안내
           </Link>
         </ListItemText>
-        <LinkTo href="https://open.kakao.com/o/sM9BAiLb">카톡하기</LinkTo>
+        <ListItemText inset>
+          <Link
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            입실문의
+          </Link>
+        </ListItemText>
       </ListItem>
     </List>
   );
