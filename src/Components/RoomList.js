@@ -8,7 +8,6 @@ import {
   TableRow,
   Button
 } from "@material-ui/core";
-import { Edit, Delete } from "@material-ui/icons/";
 import { withStyles } from "@material-ui/core/styles";
 import axios from "axios";
 

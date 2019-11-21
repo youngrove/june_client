@@ -4,7 +4,7 @@ import Home from "./Pages/Home";
 import Admin from "./Pages/Admin";
 import Login from "./Pages/Login";
 import { PrivateRoute } from "./Pages/Private";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
