@@ -1,68 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 을지로 준레지던스 원룸텔 홈페이지 개편
 
-## Available Scripts
+### **기존 홈페이지**
 
-In the project directory, you can run:
+![준레지던스.png](https://images.velog.io/post-images/qksud14/c4976cc0-093b-11ea-9aae-a58a86bb0520/.png)
 
-### `yarn start`
+### **개편된 홈페이지**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![준레지던스1.png](https://images.velog.io/post-images/qksud14/3749acf0-0ce9-11ea-bd4b-d35c70e3c1ec/1.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+> 개선 사항
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- SPA를 적용해 불필요한 클릭을 없애고, 스크롤방식으로 구현해서 모바일 친화적이다.
+- 시작화면에는 고시텔 내부 이미지보다는 주변환경 이미지를 사용해서 다른 고시원홈페이지 보다 새로운 느낌을 준다.
+- 간결한 텍스트와 아이콘을 사용해서 보다 직관적으로 정보를 전달한다.
+- 빈방현황을 확인하는 페이지를 만들어 고객이 입실문의를 남겨야 빈방현황을 알 수 있는 번거로움을 없앴다.
+- 고객들에게 빈방의 동영상을 보여줌으로써 홈페이지만 보고 바로 계약을 가능하게 했다.
+- 카톡 친구추가없이 바로 문의가 가능하다.
+- 반응형웹페이지 방식을 사용해서 모바일과 웹을 동시에 유지보수가 가능하다.
