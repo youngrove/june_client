@@ -6,7 +6,7 @@
 
 ### **개편된 홈페이지**
 
-![준레지던스1.png](https://images.velog.io/post-images/qksud14/3749acf0-0ce9-11ea-bd4b-d35c70e3c1ec/1.png)
+![준레지던스1.png](https://user-images.githubusercontent.com/40445771/69505551-dc4b5d80-0f6d-11ea-8e6e-1a8c5fe84f98.png)
 
 > 개선 사항
 
