@@ -39,7 +39,7 @@ const Nav = () => {
             offset={-70}
             duration={500}
           >
-            공용시설
+            공동시설
           </Link>
         </ListItemText>
         <ListItemText inset>

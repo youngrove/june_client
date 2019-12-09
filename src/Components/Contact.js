@@ -1,15 +1,24 @@
 import React, { Component } from "react";
-import { Container, Typography, Grid } from "@material-ui/core";
+import {
+  Container,
+  Typography,
+  Grid,
+  Link,
+  Box,
+  Button
+} from "@material-ui/core";
+import { OpenInNew } from "@material-ui/icons/";
 const { kakao } = window;
 
 const styles = {
   gridContainer: {
     height: "100vh",
     width: "100vw",
-    padding: 30
+    padding: 80
   },
-  mainContainer: {
-    backgroundColor: "#f5f6f9"
+
+  button: {
+    backgroundColor: "#FFE117"
   }
 };
 
@@ -28,7 +37,7 @@ class Contact extends Component {
   }
   render() {
     return (
-      <Container maxWidth="false" id="contact">
+      <Container style={{ padding: 0 }} maxWidth="false" id="contact">
         <Grid
           container
           justify="center"
@@ -47,6 +56,7 @@ class Contact extends Component {
             </Grid>
             <Grid
               container
+              item
               align="center"
               spacing={5}
               xs={6}
@@ -54,26 +64,44 @@ class Contact extends Component {
               direction="column"
             >
               <Grid item>
-                <Typography variant="h5" paragraph>
-                  주소
+                <Typography variant="h5" paragraph component="div">
+                  <Box fontWeight="fontWeightBold">주소</Box>
                 </Typography>
+
                 <Typography variant="subtitle1">
                   서울시 중구 수표로 70(구. 수표동 35-12) 4~5층
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="h5" paragraph>
-                  전화번호
+                <Typography variant="h5" paragraph component="div">
+                  <Box fontWeight="fontWeightBold">전화번호</Box>
                 </Typography>
                 <Typography variant="subtitle1">02-2285-5507</Typography>
                 <Typography variant="subtitle1">02-2693-5507</Typography>
                 <Typography variant="subtitle1">010-8961-2340</Typography>
               </Grid>
-              <Grid item>
-                <Typography variant="h5" paragraph>
-                  카카오톡
+              <Grid>
+                <Typography>
+                  <Link
+                    variant="h5"
+                    href="https://www.notion.so/juneresidence/6c4c4355389d4b89a96416b6738c7312"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    자주하는질문
+                    <OpenInNew></OpenInNew>
+                  </Link>
                 </Typography>
-                <Typography variant="subtitle1">ID:jun5507</Typography>
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  size="large"
+                  style={styles.button}
+                  href="https://open.kakao.com/o/sM9BAiLb"
+                >
+                  카카오톡 상담하기
+                </Button>
               </Grid>
             </Grid>
           </Grid>
