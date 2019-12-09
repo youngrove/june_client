@@ -11,19 +11,15 @@ const styles = {
     height: "100vh",
     width: "100vw"
   },
-  mainContainer: {
-    padding: 0,
-    margin: 0
-  },
   button: {
     backgroundColor: "#FFE117",
-    marginTop: 40
+    marginTop: 50
   }
 };
 
 const Main = () => {
   return (
-    <Container style={styles.mainContainer} id="main">
+    <Container style={{ padding: 0 }} id="main" maxWidth="false">
       <Grid
         container
         direction="column"
@@ -31,11 +27,11 @@ const Main = () => {
         alignItems="center"
         style={styles.gridContainer}
       >
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom component="div">
           <Box fontWeight={400}>을지로 준레지던스</Box>
         </Typography>
         <Typography variant="h5" paragraph>
-          <Box>을지로 직장인과 종로학원가 학생에게 최적의 공간</Box>
+          을지로 직장인과 종로학원가 학생에게 최적의 공간
         </Typography>
         <Button
           variant="contained"
@@ -43,7 +39,7 @@ const Main = () => {
           style={styles.button}
           href="https://open.kakao.com/o/sM9BAiLb"
         >
-          카톡문의
+          카카오톡 상담하기
         </Button>
       </Grid>
     </Container>

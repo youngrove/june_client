@@ -10,9 +10,6 @@ const styles = {
     height: "100vh",
     width: "100vw",
     padding: 30
-  },
-  mainContainer: {
-    padding: 0
   }
 };
 
@@ -23,10 +20,12 @@ const Intro = () => {
     speed: 500,
     arrows: true,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplayspeed: 4000
   };
   return (
-    <Container style={styles.mainContainer} id="intro" maxWidth="false">
+    <Container style={{ padding: 0 }} id="intro" maxWidth="false">
       <Grid
         container
         direction="column"
@@ -35,26 +34,30 @@ const Intro = () => {
         align="center"
         style={styles.gridContainer}
       >
-        <Typography variant="h4" paragraph>
-          시설소개
-        </Typography>
-        <Typography variant="h5" color="primary" paragraph>
-          “준레지던스원룸텔의 깨끗한 시설, 넉넉한 생활공간으로 품격있는 고객님을
-          초대합니다.”
-        </Typography>
-        <Typography>
-          지하철 2, 3호선 을지로3가역과 가깝게 위치하고 산책하기 좋은 청계천,
-          종로 학원가, 사무실 등 학생 및 직장인에게 최적의 위치입니다.
-        </Typography>
-        <Typography>
-          강화된 소방법 적용으로 안전한 생활과 편안한 인테리어 시공으로 쾌적한
-          주거공간을 마련하였습니다.
-        </Typography>
-        <Typography>
-          직접 방문하시어 시원한(따뜻한) 차 한잔 하시며 천천히 살펴보세요.
-        </Typography>
-
-        <div className="intro-container">
+        <Grid style={{ margin: 20 }}>
+          <Typography variant="h4" paragraph>
+            시설소개
+          </Typography>
+          <Typography variant="h5" color="primary" paragraph>
+            “준레지던스원룸텔의 깨끗한 시설, 넉넉한 생활공간으로 품격있는
+            고객님을 초대합니다.”
+          </Typography>
+          <Typography>
+            지하철 2, 3호선 을지로3가역과 가깝게 위치하고 산책하기 좋은 청계천,
+            종로 학원가, 사무실 등 학생 및 직장인에게 최적의 위치입니다.
+          </Typography>
+          <Typography>
+            각 방마다 화장실, 에어컨, TV, 냉장고, 초고속인터넷으로 편리한 생활이
+            가능합니다.
+          </Typography>
+          <Typography>
+            강화된 소방법 적용으로 안전한 주거공간을 마련하였습니다.
+          </Typography>
+          <Typography>
+            직접 방문하시어 시원한(따뜻한) 차 한잔 하시며 천천히 살펴보세요.
+          </Typography>
+        </Grid>
+        <Grid className="intro-container" style={styles.imgContainer}>
           <Slider {...settings}>
             <div>
               <img src={require("../img/1.jpg")} alt="img1" />
@@ -69,7 +72,7 @@ const Intro = () => {
               <img src={require("../img/4.jpg")} alt="img4" />
             </div>
           </Slider>
-        </div>
+        </Grid>
       </Grid>
     </Container>
   );
