@@ -20,15 +20,13 @@ const styles = {
     height: "100vh",
     width: "100vw",
     padding: 30
-  },
-  mainContainer: {
-    padding: 0
   }
 };
 
 const Room = () => {
   const [data, setData] = useState([]);
   const [isOpen, setModal] = useState(false);
+  const [link, setLink] = useState("");
 
   useEffect(() => {
     axios
@@ -37,12 +35,13 @@ const Room = () => {
       .catch(err => console.log(err));
   }, []);
 
-  const handleModal = () => {
+  const handleModal = item => {
+    setLink(item.link);
     setModal(!isOpen);
   };
 
   return (
-    <Container id="room" maxWidth="false">
+    <Container id="room" maxWidth="false" style={{ padding: 0 }}>
       <Grid
         container
         direction="column"
@@ -74,7 +73,7 @@ const Room = () => {
                   </TableCell>
                   <TableCell align="right">{item.price}만원/월</TableCell>
                   <TableCell align="right">
-                    <Button color="primary" onClick={handleModal}>
+                    <Button color="primary" onClick={() => handleModal(item)}>
                       영상보기
                     </Button>
                   </TableCell>
@@ -83,7 +82,11 @@ const Room = () => {
             </TableBody>
           </Table>
         </Paper>
-        <VideoModal open={isOpen} handleModal={handleModal}></VideoModal>
+        <VideoModal
+          open={isOpen}
+          handleModal={handleModal}
+          url={link}
+        ></VideoModal>
       </Grid>
     </Container>
   );
