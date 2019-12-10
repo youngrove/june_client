@@ -21,12 +21,13 @@ const Facility = () => {
     <Container id="facility" maxWidth="xl" style={{ padding: 0 }}>
       <Grid
         container
+        direction="column"
         justify="center"
         alignItems="center"
         align="center"
         style={styles.gridContainer}
       >
-        <Grid>
+        <Grid style={{ marginBottom: 20 }}>
           <Typography variant="h4" paragraph>
             공동시설
           </Typography>
