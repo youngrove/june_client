@@ -3,11 +3,11 @@ import Slider from "react-slick";
 import "../App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Container, Typography, Grid } from "@material-ui/core";
+import { Container, Typography, Grid, Box } from "@material-ui/core";
 
 const styles = {
   gridContainer: {
-    height: "100vh",
+    height: "110vh",
     width: "100vw",
     padding: 30
   }
@@ -25,7 +25,7 @@ const Intro = () => {
     autoplayspeed: 4000
   };
   return (
-    <Container style={{ padding: 0 }} id="intro" maxWidth="false">
+    <Container style={{ padding: 0 }} id="intro" maxWidth="xl">
       <Grid
         container
         direction="column"
@@ -57,20 +57,20 @@ const Intro = () => {
             직접 방문하시어 시원한(따뜻한) 차 한잔 하시며 천천히 살펴보세요.
           </Typography>
         </Grid>
-        <Grid className="intro-container" style={styles.imgContainer}>
+        <Grid item style={{ width: "60vw" }}>
           <Slider {...settings}>
-            <div>
+            <Box>
               <img src={require("../img/1.jpg")} alt="img1" />
-            </div>
-            <div>
+            </Box>
+            <Box>
               <img src={require("../img/2.jpg")} alt="img2" />
-            </div>
-            <div>
+            </Box>
+            <Box>
               <img src={require("../img/3.jpg")} alt="img3" />
-            </div>
-            <div>
+            </Box>
+            <Box>
               <img src={require("../img/4.jpg")} alt="img4" />
-            </div>
+            </Box>
           </Slider>
         </Grid>
       </Grid>
